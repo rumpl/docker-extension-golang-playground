@@ -16,6 +16,7 @@ function useDockerDesktopClient() {
 
 function App() {
   const [responses, setResponses] = React.useState([]);
+  const [errors, setErrors] = React.useState("");
   const ddClient = useDockerDesktopClient();
   const editorRef = React.useRef(null);
 
@@ -29,6 +30,7 @@ function App() {
       code,
     });
     setResponses(result.Events);
+    setErrors(result.Errors);
   };
 
   return (
@@ -52,10 +54,16 @@ function App() {
         <Button onClick={run}>Run</Button>
       </div>
       <div>
-        {responses.map((response) => (
-          <pre key={response.Message}>{response.Message}</pre>
-        ))}
+        {responses &&
+          responses.map((response) => (
+            <pre key={response.Message}>{response.Message}</pre>
+          ))}
       </div>
+      {errors && (
+        <pre style={{ color: "red" }} key={errors}>
+          {errors}
+        </pre>
+      )}
     </DockerMuiThemeProvider>
   );
 }
