@@ -3,7 +3,7 @@
   "vm": {
     "composefile": "docker-compose.yaml",
     "exposes": {
-      "socket": "extension-milos.sock"
+      "socket": "extension-golang-playground.sock"
     }
   },
   "ui": {
@@ -12,7 +12,7 @@
       "src": "index.html",
       "root": "ui",
       "backend": {
-        "socket": "extension-milos.sock"
+        "socket": "extension-golang-playground.sock"
       }
     }
   }

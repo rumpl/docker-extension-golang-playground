@@ -1,4 +1,4 @@
-module github.com/docker/milos
+module github.com/docker/docker-extension-golang-playground
 
 go 1.18
 
